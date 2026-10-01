@@ -52,14 +52,6 @@ public class RubyRunConfiguration extends AbstractRubyRunConfiguration implement
 		return new RubyRunConfiguration(getProject(), getFactory(), getName());
 	}
 
-	public static void copyParams(final RubyRunConfigurationParams fromParams, final RubyRunConfigurationParams toParams)
-	{
-		AbstractRubyRunConfiguration.copyParams(fromParams, toParams);
-
-		toParams.setScriptPath(fromParams.getScriptPath());
-		toParams.setScriptArgs(fromParams.getScriptArgs());
-	}
-
 	@Override
 	public String getScriptPath()
 	{

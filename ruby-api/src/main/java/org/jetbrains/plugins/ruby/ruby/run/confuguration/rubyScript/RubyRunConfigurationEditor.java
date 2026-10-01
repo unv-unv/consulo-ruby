@@ -16,50 +16,23 @@
 
 package org.jetbrains.plugins.ruby.ruby.run.confuguration.rubyScript;
 
-import javax.swing.JComponent;
-
-import consulo.configurable.ConfigurationException;
-import consulo.execution.configuration.ui.SettingsEditor;
+import consulo.module.Module;
 import consulo.project.Project;
-import jakarta.annotation.Nonnull;
+import consulo.ui.annotation.RequiredUIAccess;
+import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfigurationEditor;
+import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfigurationLayout;
 
-public class RubyRunConfigurationEditor extends SettingsEditor<RubyRunConfiguration>
+public class RubyRunConfigurationEditor extends AbstractRubyRunConfigurationEditor<RubyRunConfiguration>
 {
-	protected RubyRunConfigurationForm myForm;
-
-
-	public RubyRunConfigurationEditor(final Project project, final RubyRunConfiguration runConfiguration)
+	public RubyRunConfigurationEditor(Project project, RubyRunConfiguration runConfiguration)
 	{
-		myForm = new RubyRunConfigurationForm(project, runConfiguration);
+		super(project, runConfiguration);
 	}
 
-	protected RubyRunConfigurationForm getForm()
-	{
-		return myForm;
-	}
-
+	@RequiredUIAccess
 	@Override
-	protected void resetEditorFrom(RubyRunConfiguration config)
+	protected AbstractRubyRunConfigurationLayout<RubyRunConfiguration> createLayout(Module[] modules)
 	{
-		RubyRunConfiguration.copyParams(config, myForm);
-	}
-
-	@Override
-	protected void applyEditorTo(RubyRunConfiguration config) throws ConfigurationException
-	{
-		RubyRunConfiguration.copyParams(myForm, config);
-	}
-
-	@Override
-	@Nonnull
-	protected JComponent createEditor()
-	{
-		return myForm.getPanel();
-	}
-
-	@Override
-	protected void disposeEditor()
-	{
+		return new RubyRunConfigurationLayout<>(myProject, this, modules);
 	}
 }
-

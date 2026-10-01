@@ -16,12 +16,11 @@
 
 package org.jetbrains.plugins.ruby.ruby.run.confuguration.tests;
 
-import javax.swing.JComponent;
-
-import jakarta.annotation.Nonnull;
-import consulo.configurable.ConfigurationException;
-import consulo.execution.configuration.ui.SettingsEditor;
+import consulo.module.Module;
 import consulo.project.Project;
+import consulo.ui.annotation.RequiredUIAccess;
+import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfigurationEditor;
+import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfigurationLayout;
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,38 +28,17 @@ import consulo.project.Project;
  * @author: Roman Chernyatchik
  * @date: 19.07.2007
  */
-public class RTestsRunConfigurationEditor extends SettingsEditor<RTestsRunConfiguration>
+public class RTestsRunConfigurationEditor extends AbstractRubyRunConfigurationEditor<RTestsRunConfiguration>
 {
-	private RTestsRunConfigurationForm myForm;
-
-
-	public RTestsRunConfigurationEditor(final Project project, final RTestsRunConfiguration configuration)
+	public RTestsRunConfigurationEditor(Project project, RTestsRunConfiguration configuration)
 	{
-		myForm = new RTestsRunConfigurationForm(project, configuration);
+		super(project, configuration);
 	}
 
+	@RequiredUIAccess
 	@Override
-	protected void resetEditorFrom(final RTestsRunConfiguration config)
+	protected AbstractRubyRunConfigurationLayout<RTestsRunConfiguration> createLayout(Module[] modules)
 	{
-		RTestsRunConfiguration.copyParams(config, myForm);
-	}
-
-	@Override
-	protected void applyEditorTo(final RTestsRunConfiguration config) throws ConfigurationException
-	{
-		RTestsRunConfiguration.copyParams(myForm, config);
-	}
-
-	@Override
-	@Nonnull
-	protected JComponent createEditor()
-	{
-		return myForm.getPanel();
-	}
-
-	@Override
-	protected void disposeEditor()
-	{
-		myForm = null;
+		return new RTestsRunConfigurationLayout(myProject, this, modules);
 	}
 }

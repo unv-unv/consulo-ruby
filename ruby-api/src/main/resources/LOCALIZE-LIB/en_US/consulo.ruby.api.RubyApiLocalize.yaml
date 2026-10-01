@@ -126,6 +126,10 @@ run.configuration.test.use.alternate.sdk.checkbox:
   text: Use alternative S&DK
 run.configuration.test.ignore.testcase.inheritance:
   text: D&isable check that class must be inherited from Test::Unit::TestCase
+run.configuration.module.label:
+  text: 'Module:'
+run.configuration.sdk.from.module:
+  text: Use SDK of module
 rails.run.configuration.type.name:
   text: Rails
 rails.run.configuration.type.description:
@@ -186,6 +190,8 @@ rspec.run.configuration.tests.use.gem.from.sdk.checkbox:
   text: Use RSpec Gem from S&DK
 rspec.run.configuration.messages.spec.args:
   text: Spec arguments
+rspec.run.configuration.custom.runner.placeholder:
+  text: Default spec runner
 run.configuration.script.port.cant.find.free:
   text: Can''t find free port
 run.configuration.script.port.is.busy:

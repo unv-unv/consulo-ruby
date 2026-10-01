@@ -72,17 +72,6 @@ public abstract class AbstractRubyRunConfiguration extends RunConfigurationBase 
 		super(project, factory, name);
 	}
 
-	public static void copyParams(final AbstractRubyRunConfigurationParams fromParams, final AbstractRubyRunConfigurationParams toParams)
-	{
-		toParams.setRubyArgs(fromParams.getRubyArgs());
-		toParams.setWorkingDirectory(fromParams.getWorkingDirectory());
-		toParams.setModule(fromParams.getModule());
-		toParams.setShouldUseAlternativeSdk(fromParams.shouldUseAlternativeSdk());
-		toParams.setAlternativeSdk(fromParams.getAlternativeSdk());
-		toParams.setEnvs(fromParams.getEnvs());
-		toParams.setPassParentEnvs(fromParams.isPassParentEnvs());
-	}
-
 	protected abstract AbstractRubyRunConfiguration createInstance();
 
 	@Nonnull

@@ -75,17 +75,6 @@ public class RailsServerRunConfiguration extends RubyRunConfiguration implements
 		return new RailsServerRunConfiguration(getProject(), getFactory(), getName());
 	}
 
-	public static void copyParams(final RailsServerRunConfigurationParams fromParams, final RailsServerRunConfigurationParams toParams)
-	{
-		RubyRunConfiguration.copyParams(fromParams, toParams);
-
-		toParams.setIPAddr(fromParams.getIPAddr());
-		toParams.setPort(fromParams.getPort());
-		toParams.setChoosePortManually(fromParams.isChoosePortManually());
-		toParams.setServerType(fromParams.getServerType());
-		toParams.setRailsEnvironmentType(fromParams.getRailsEnvironmentType());
-	}
-
 	/**
 	 * @param module Rails or Java Module
 	 * @return Work directory if Rails Application Home Directory or null(if no rails in module)

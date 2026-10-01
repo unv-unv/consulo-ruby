@@ -16,9 +16,7 @@
 
 package org.jetbrains.plugins.ruby.addins.rspec.run.configuration;
 
-import jakarta.annotation.Nonnull;
-import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfiguration;
-import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfigurationParams;
+import org.jetbrains.plugins.ruby.ruby.run.confuguration.tests.AbstractRTestsRunConfigurationParams;
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,16 +24,8 @@ import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfigur
  * @author: Roman Chernyatchik
  * @date: May 22, 2008
  */
-public interface RSpecRunConfigurationParams extends AbstractRubyRunConfigurationParams
+public interface RSpecRunConfigurationParams extends AbstractRTestsRunConfigurationParams
 {
-	public String getTestsFolderPath();
-
-	public String getTestScriptPath();
-
-	public AbstractRubyRunConfiguration.TestType getTestType();
-
-	public String getTestFileMask();
-
 	public String getSpecArgs();
 
 	public String getCustomSpecsRunnerPath();
@@ -45,14 +35,6 @@ public interface RSpecRunConfigurationParams extends AbstractRubyRunConfiguratio
 	public boolean shouldUseCustomSpecRunner();
 
 	public boolean shouldRunSpecSeparately();
-
-	public void setTestsFolderPath(String path);
-
-	public void setTestScriptPath(String pathOrMask);
-
-	public void setTestType(@Nonnull AbstractRubyRunConfiguration.TestType testType);
-
-	public void setTestFileMask(String testFileMask);
 
 	public void setSpecArgs(String specArgs);
 

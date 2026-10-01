@@ -16,13 +16,11 @@
 
 package org.jetbrains.plugins.ruby.addins.rspec.run.configuration;
 
-import javax.swing.JComponent;
-
-import jakarta.annotation.Nonnull;
-
-import consulo.execution.configuration.ui.SettingsEditor;
+import consulo.module.Module;
 import consulo.project.Project;
-import consulo.configurable.ConfigurationException;
+import consulo.ui.annotation.RequiredUIAccess;
+import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfigurationEditor;
+import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfigurationLayout;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,38 +28,17 @@ import consulo.configurable.ConfigurationException;
  * @author: Roman Chernyatchik
  * @date: 19.07.2007
  */
-public class RSpecRunConfigurationEditor extends SettingsEditor<RSpecRunConfiguration>
+public class RSpecRunConfigurationEditor extends AbstractRubyRunConfigurationEditor<RSpecRunConfiguration>
 {
-	private RSpecRunConfigurationForm myForm;
-
-
-	public RSpecRunConfigurationEditor(final Project project, final RSpecRunConfiguration configuration)
+	public RSpecRunConfigurationEditor(Project project, RSpecRunConfiguration configuration)
 	{
-		myForm = new RSpecRunConfigurationForm(project, configuration);
+		super(project, configuration);
 	}
 
+	@RequiredUIAccess
 	@Override
-	protected void resetEditorFrom(final RSpecRunConfiguration config)
+	protected AbstractRubyRunConfigurationLayout<RSpecRunConfiguration> createLayout(Module[] modules)
 	{
-		RSpecRunConfiguration.copyParams(config, myForm);
-	}
-
-	@Override
-	protected void applyEditorTo(final RSpecRunConfiguration config) throws ConfigurationException
-	{
-		RSpecRunConfiguration.copyParams(myForm, config);
-	}
-
-	@Override
-	@Nonnull
-	protected JComponent createEditor()
-	{
-		return myForm.getPanel();
-	}
-
-	@Override
-	protected void disposeEditor()
-	{
-		myForm = null;
+		return new RSpecRunConfigurationLayout(myProject, this, modules);
 	}
 }

@@ -16,10 +16,11 @@
 
 package org.jetbrains.plugins.ruby.rails.run.configuration.server;
 
+import consulo.module.Module;
 import consulo.project.Project;
-import org.jetbrains.plugins.ruby.ruby.run.confuguration.rubyScript.RubyRunConfiguration;
-import org.jetbrains.plugins.ruby.ruby.run.confuguration.rubyScript.RubyRunConfigurationEditor;
-import consulo.configurable.ConfigurationException;
+import consulo.ui.annotation.RequiredUIAccess;
+import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfigurationEditor;
+import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfigurationLayout;
 
 /**
  * Created by IntelliJ IDEA.
@@ -27,24 +28,17 @@ import consulo.configurable.ConfigurationException;
  * @author: Roman Chernyatchik
  * @date: 04.08.2007
  */
-public class RailsServerRunConfigurationEditor extends RubyRunConfigurationEditor
+public class RailsServerRunConfigurationEditor extends AbstractRubyRunConfigurationEditor<RailsServerRunConfiguration>
 {
-	public RailsServerRunConfigurationEditor(final Project project, final RubyRunConfiguration runConfiguration)
+	public RailsServerRunConfigurationEditor(Project project, RailsServerRunConfiguration runConfiguration)
 	{
 		super(project, runConfiguration);
-
-		myForm = new RailsServerConfigurationForm(project, runConfiguration);
 	}
 
+	@RequiredUIAccess
 	@Override
-	protected void resetEditorFrom(final RubyRunConfiguration config)
+	protected AbstractRubyRunConfigurationLayout<RailsServerRunConfiguration> createLayout(Module[] modules)
 	{
-		RailsServerRunConfiguration.copyParams((RailsServerRunConfiguration) config, (RailsServerConfigurationForm) myForm);
-	}
-
-	@Override
-	protected void applyEditorTo(final RubyRunConfiguration config) throws ConfigurationException
-	{
-		RailsServerRunConfiguration.copyParams((RailsServerConfigurationForm) myForm, (RailsServerRunConfiguration) config);
+		return new RailsServerRunConfigurationLayout(myProject, this, modules);
 	}
 }

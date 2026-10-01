@@ -83,24 +83,6 @@ public class RSpecRunConfiguration extends AbstractRubyRunConfiguration implemen
 		setRubyArgs(RubyRunConfigurationUtil.collectArguments(RubyUtil.RUN_IN_CONSOLE_HACK_ARGUMENTS));
 	}
 
-	public static void copyParams(final RSpecRunConfigurationParams fromParams, final RSpecRunConfigurationParams toParams)
-	{
-		AbstractRubyRunConfiguration.copyParams(fromParams, toParams);
-
-		toParams.setTestType(fromParams.getTestType());
-
-		toParams.setTestsFolderPath(fromParams.getTestsFolderPath());
-		toParams.setTestScriptPath(fromParams.getTestScriptPath());
-		toParams.setTestFileMask(fromParams.getTestFileMask());
-
-		toParams.setShouldUseCustomSpecRunner(fromParams.shouldUseCustomSpecRunner());
-		toParams.setShouldRunSpecSeparately(fromParams.shouldRunSpecSeparately());
-		toParams.setSpecArgs(fromParams.getSpecArgs());
-		toParams.setCustomSpecsRunnerPath(fromParams.getCustomSpecsRunnerPath());
-
-		toParams.setShouldUseColoredOutput(fromParams.shouldUseColoredOutput());
-	}
-
 	@Override
 	protected RSpecRunConfiguration createInstance()
 	{

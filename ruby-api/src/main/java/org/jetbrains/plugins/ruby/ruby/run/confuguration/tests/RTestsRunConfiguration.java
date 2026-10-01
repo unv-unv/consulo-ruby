@@ -84,21 +84,6 @@ public class RTestsRunConfiguration extends AbstractRubyRunConfiguration impleme
 		setRubyArgs(RubyRunConfigurationUtil.collectArguments(RubyUtil.RUN_IN_CONSOLE_HACK_ARGUMENTS));
 	}
 
-	public static void copyParams(final RTestRunConfigurationParams fromParams, final RTestRunConfigurationParams toParams)
-	{
-		AbstractRubyRunConfiguration.copyParams(fromParams, toParams);
-
-		toParams.setTestType(fromParams.getTestType());
-
-		toParams.setTestsFolderPath(fromParams.getTestsFolderPath());
-		toParams.setTestScriptPath(fromParams.getTestScriptPath());
-		toParams.setTestQualifiedClassName(fromParams.getTestQualifiedClassName());
-		toParams.setTestFileMask(fromParams.getTestFileMask());
-		toParams.setTestMethodName(fromParams.getTestMethodName());
-
-		toParams.setInheritanceCheckDisabled(fromParams.isInheritanceCheckDisabled());
-	}
-
 	@Override
 	protected RTestsRunConfiguration createInstance()
 	{

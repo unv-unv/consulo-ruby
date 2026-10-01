@@ -16,11 +16,7 @@
 
 package org.jetbrains.plugins.ruby.ruby.run.confuguration.tests;
 
-import jakarta.annotation.Nonnull;
-
 import jakarta.annotation.Nullable;
-import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfiguration;
-import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfigurationParams;
 
 /**
  * Created by IntelliJ IDEA.
@@ -28,33 +24,17 @@ import org.jetbrains.plugins.ruby.ruby.run.confuguration.AbstractRubyRunConfigur
  * @author: Roman Chernyatchik
  * @date: May 22, 2008
  */
-public interface RTestRunConfigurationParams extends AbstractRubyRunConfigurationParams
+public interface RTestRunConfigurationParams extends AbstractRTestsRunConfigurationParams
 {
-	public String getTestsFolderPath();
-
-	public String getTestScriptPath();
-
 	public String getTestMethodName();
-
-	public AbstractRubyRunConfiguration.TestType getTestType();
 
 	public String getTestQualifiedClassName();
 
-	public String getTestFileMask();
-
 	public boolean isInheritanceCheckDisabled();
-
-	public void setTestsFolderPath(String path);
-
-	public void setTestScriptPath(String pathOrMask);
 
 	public void setTestMethodName(@Nullable String name);
 
-	public void setTestType(@Nonnull AbstractRubyRunConfiguration.TestType testType);
-
 	public void setTestQualifiedClassName(@Nullable String testClassName);
-
-	public void setTestFileMask(String testFileMask);
 
 	public void setInheritanceCheckDisabled(boolean disabled);
 }
