@@ -1,14 +1,12 @@
-<consulo-plugin url="https://github.com/consulo/incubating-consulo-ruby">
-	<id>consulo.jruby.rails</id>
-	<name>JRuby on Rails</name>
-	<version>SNAPSHOT</version>
+<consulo-plugin url="https://github.com/consulo/consulo-ruby">
+    <id>consulo.jruby.rails</id>
+    <name>JRuby on Rails</name>
+    <version>SNAPSHOT</version>
 
-	<depends>consulo.ruby.rails</depends>
+    <depends>consulo.ruby.rails</depends>
 
-	<tags>
-		<tag>language.extension</tag>
-		<tag>web.framework</tag>
-	</tags>
-
-	<experimental>true</experimental>
+    <tags>
+        <tag>language.extension</tag>
+        <tag>web.framework</tag>
+    </tags>
 </consulo-plugin>

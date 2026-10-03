@@ -106,7 +106,7 @@ public abstract class ColouredCommandLineState extends CommandLineState {
             config.checkConfiguration();
         }
         catch (RuntimeConfigurationException e) {
-            throw new CantRunException(e.getMessage());
+            throw new CantRunException(e.getMessage(), e);
         }
     }
 

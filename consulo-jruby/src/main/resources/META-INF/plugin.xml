@@ -1,18 +1,16 @@
-<consulo-plugin url="https://github.com/consulo/incubating-consulo-ruby">
-	<id>consulo.jruby</id>
-	<name>JRuby</name>
-	<version>SNAPSHOT</version>
+<consulo-plugin url="https://github.com/consulo/consulo-ruby">
+    <id>consulo.jruby</id>
+    <name>JRuby</name>
+    <version>SNAPSHOT</version>
 
-	<depends>consulo.ruby</depends>
-	<depends>consulo.java</depends>
+    <depends>consulo.ruby</depends>
+    <depends>consulo.java</depends>
 
-	<tags>
-		<tag>language.extension</tag>
-	</tags>
+    <tags>
+        <tag>language.extension</tag>
+    </tags>
 
-	<experimental>true</experimental>
-
-	<extensions defaultExtensionNs="com.intellij">
-		<addTo.listOfElements name="rdocToolwindowModuleExtensionList">jruby</addTo.listOfElements>
-	</extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <addTo.listOfElements name="rdocToolwindowModuleExtensionList">jruby</addTo.listOfElements>
+    </extensions>
 </consulo-plugin>

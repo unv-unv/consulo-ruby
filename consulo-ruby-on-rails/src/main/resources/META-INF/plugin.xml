@@ -1,13 +1,11 @@
-<consulo-plugin url="https://github.com/consulo/incubating-consulo-ruby">
-	<id>consulo.ruby.rails</id>
-	<name>Ruby on Rails</name>
-	<version>SNAPSHOT</version>
+<consulo-plugin url="https://github.com/consulo/consulo-ruby">
+    <id>consulo.ruby.rails</id>
+    <name>Ruby on Rails</name>
+    <version>SNAPSHOT</version>
 
-	<depends>consulo.ruby</depends>
+    <depends>consulo.ruby</depends>
 
-	<tags>
-		<tag>language.extension</tag>
-	</tags>
-
-	<experimental>true</experimental>
+    <tags>
+        <tag>language.extension</tag>
+    </tags>
 </consulo-plugin>
